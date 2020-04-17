@@ -17,7 +17,7 @@ yum -y install nagios-plugins-all
 yum -y install nagios-plugins-nrpe
 
 htpasswd -b /etc/nagios/passwd nagiosadmin nagiosadmin      # set the nagios admin password
-sed -i 's,allowed_hosts=127.0.0.1,allowed_hosts=127.0.0.1\,10.128.0.0\/20,g' /etc/nagios/nrpe.cfg
+sed -i 's,allowed_hosts=127.0.0.1,allowed_hosts=127.0.0.1\,10.128.0.3\/20,g' /etc/nagios/nrpe.cfg
 # the above enables connections from your subnet, please ajust to be your subnet!
 
 sed -i 's,dont_blame_nrpe=0,dont_blame_nrpe=1,g' /etc/nagios/nrpe.cfg
@@ -35,7 +35,7 @@ systemctl restart nagios
 
 yum -y install wget
 cd /etc/nagios
-wget https://raw.githubusercontent.com/Eli-Brown/NTI-320-Atom-Smasher/master/nagios/generate-config.sh
+wget https://raw.githubusercontent.com/nic-instruction/hello-nti-320/master/generate_config.sh
 
 
 
@@ -44,9 +44,9 @@ wget https://raw.githubusercontent.com/Eli-Brown/NTI-320-Atom-Smasher/master/nag
 # put it's ip address and hostname insto generate_config.sh
 
 
-Further configuration:
-https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
+#Further configuration:
+#https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
 
 
-verify
-/usr/sbin/nagios -v /etc/nagios/nagios.cfg
+#verify
+#/usr/sbin/nagios -v /etc/nagios/nagios.cfg
