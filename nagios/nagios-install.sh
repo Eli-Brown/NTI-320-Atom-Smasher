@@ -35,7 +35,7 @@ systemctl restart nagios
 
 yum -y install wget
 cd /etc/nagios
-wget https://raw.githubusercontent.com/nic-instruction/hello-nti-320/master/generate_config.sh
+wget https://raw.githubusercontent.com/Eli-Brown/NTI-320-Atom-Smasher/master/nagios/generate-config.sh
 
 
 
