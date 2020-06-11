@@ -1,6 +1,6 @@
 #!/bin/bash
 ######TEST2#####|
-# on Nagios server 10.128.0.3
+# 6/11/20 on Nagios server 10.128.0.3...35.224.66.98 
 # https://raw.githubusercontent.com/Eli-Brown/NTI-320-Atom-Smasher/master/nrpe-http-eli/check_http
 # https://github.com/Eli-Brown/NTI-320-Atom-Smasher/blob/master/nrpe-http-eli/check_http
 # nrpe-http-eli/check_http
