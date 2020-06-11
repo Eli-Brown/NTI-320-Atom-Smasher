@@ -8,13 +8,13 @@
 ######TEST1#####
 curl -v http://35.224.66.98/nagios
 
-curl -s -o http_HTTP_Status_Response.txt -w "%{http_code}" http://35.224.66.98/nagios
+curl -s -o http_HTTP_Status_Response.txt -w "%{http_code}" http://35.224.66.98/nagios" #####nagios or example?
 
 http_code "0" ="inactive"
 http_code "200" ="No HTTP Service erro"
 http_code ="100" ="HTTP Service error"
 
-http_HTTP-Status-Response=$(curl -s -o http_HTTP_Status_Response.txt -w "%{http_code}" http://35.224.66.98/nagios/
+http_HTTP-Status-Response=$(curl -s -o http_HTTP_Status_Response.txt -w "%{http_code}" http://127.0.0.1/nagios/
 if [  $ http_HTTP_Status_Response != "200" ]; then
 	echo "No HTTP Service error"
 	
@@ -27,3 +27,4 @@ if [  $ http_HTTP_Status_Response != "0" ]; then
     echo "Server returned:"
     cat HTTP-Status-Response.txt    
     echo  "%{http_code}"
+fi
