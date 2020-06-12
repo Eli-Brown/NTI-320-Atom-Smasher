@@ -1,0 +1,13 @@
+---
+plugin: gcp_compute
+zones:
+ - us-central1-a	
+projects:
+  - banded-hexagon-163902
+filters: []
+groups:
+  webservers: "'web-' in name"
+scopes:
+  - https://www.googleapis.com/auth/compute
+service_account_file: ~/ansible/banded-hexagon-163902-e09b1feb4f08.json
+auth_kind: serviceaccount

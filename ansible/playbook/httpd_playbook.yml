@@ -1,0 +1,53 @@
+---
+- name: Install Apache HTTP Server
+  hosts: webservers
+  become: yes
+  
+  vars:
+    greeting: 'Hello Anisble on GCP!'
+  
+  tasks:
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+
+  - name: ensure the latest list of packages are installed
+    yum:
+      name: "{{ packages }}"
+      state: latest
+    vars:
+      packages:
+        - httpd
+        - httpd-tools
+        - php
+
+  - name: deploy apache config file
+    template:
+      src: server-status.conf
+      dest: /etc/httpd/conf.d/server-status.conf
+    notify:
+      - restart apache
+
+  - name: deploy php document to DocumentRoot
+    template:
+      src: info.php
+      dest: /var/www/html/info.php
+
+  - name: deploy html document to DocumentRoot
+    template:
+      src: index.html.j2
+      dest: /var/www/html/index.html
+    vars:
+      greeting: "{{ gretting }}"
+
+  - name: ensure apache is running
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart apache
+    service:
+      name: httpd
+      state: restarted
