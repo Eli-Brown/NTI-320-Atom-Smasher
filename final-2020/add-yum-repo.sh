@@ -17,3 +17,9 @@ yum repolist
 
 yum search hello-world
                               
+                              
+##                             
+#createrepo --update /repos/centos/7/extras/x86_64/Packages/
+#
+#
+
