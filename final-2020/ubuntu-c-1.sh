@@ -47,9 +47,9 @@ while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debc
 
 # NFS Client Install
 apt install -y nfs-client
-showmount -e 10.128.0.82
+showmount -e 10.128.0.18
 mkdir /mnt/test
-echo "10.128.0.82:/var/nfsshare/testing     /mnt/test     nfs     defaults 0 0" >> /etc/fstab
+echo "10.128.0.18:/var/nfsshare/testing     /mnt/test     nfs     defaults 0 0" >> /etc/fstab
 mount -a
 
 # Syslog Client Install
