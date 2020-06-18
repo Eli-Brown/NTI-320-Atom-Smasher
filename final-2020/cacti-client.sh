@@ -1,6 +1,6 @@
 #!/bin/bash
 # install snmp and tools
-yum -y install net-snmp net-snmp-utils
+yum -y install net-snmp net-snmp-utils httpd
 
 
 # create a new snmpd.conf
@@ -17,7 +17,11 @@ group    myGroup    v2c        myUser
 view all included .1
 access myGroup    ""    any    noauth     exact    all    all    none' >> /etc/snmp/snmpd.conf
 
+systemctl enable httpd
+systemctl start httpd
+
 
 # Enable snmp, Start snmp
 systemctl enable snmpd
 systemctl start snmpd
+
