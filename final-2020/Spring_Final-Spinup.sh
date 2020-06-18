@@ -10,6 +10,18 @@ gcloud compute instances create build \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/build-environment.sh \
 --private-network-ip=10.128.0.4
 
+#example
+gcloud compute instances create example \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-central1-a \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/example.sh \
+--private-network-ip=10.128.0.3
+	
+sleep 20s
+	
 
 #example
 gcloud compute instances create example \
@@ -21,7 +33,7 @@ gcloud compute instances create example \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/example.sh \
 --private-network-ip=10.128.0.3
 	
-sleep 60s
+sleep 20s
 	
 #repo
 gcloud compute instances create repo \
