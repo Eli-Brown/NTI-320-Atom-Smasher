@@ -50,3 +50,4 @@ wget https://raw.githubusercontent.com/nic-instruction/hello-nti-320/master/gene
 
 #verify
 #/usr/sbin/nagios -v /etc/nagios/nagios.cfg
+
