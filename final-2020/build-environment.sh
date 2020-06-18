@@ -21,4 +21,4 @@ mv nagioscore-4.3.1 nagioscore
 mv nrpe-3.1 nrpe
 
 cd ../SPECS                                                                   # head to the SPECS directory
-cp /usr/share/vim/vimfiles/template.spec .                         
+cp /usr/share/vim/vimfiles/template.spec .                        
