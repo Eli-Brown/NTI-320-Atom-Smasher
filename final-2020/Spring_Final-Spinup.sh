@@ -1,37 +1,38 @@
 #/bin/bash
 
+#example
+gcloud compute instances create example \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-central1-a \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/example.sh \
+--private-network-ip=10.128.0.3
+	
+sleep 20s
 #build
 gcloud compute instances create build \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/build-environment.sh \
 --private-network-ip=10.128.0.4
 
-#example
-gcloud compute instances create example \
+#example2.bac
+gcloud compute instances create example2 \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
---machine-type f1-micro \
---scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/example.sh \
---private-network-ip=10.128.0.3
-	
-sleep 20s
-	
-
-#example
-gcloud compute instances create example \
---image-family centos-7 \
---image-project centos-cloud \
---zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/example.sh \
---private-network-ip=10.128.0.3
+--private-network-ip=10.128.0.5
 	
 sleep 20s
 	
@@ -40,6 +41,7 @@ gcloud compute instances create repo \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/add-yum-repo.sh \
@@ -50,6 +52,7 @@ gcloud compute instances create nrpe \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nrpe-install.sh\
@@ -61,6 +64,7 @@ gcloud compute instances create cacti-s \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/cacti-server.sh \
@@ -72,6 +76,7 @@ gcloud compute instances create cacti-c \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/cacti-client.sh \
@@ -83,6 +88,7 @@ gcloud compute instances create rsyslog-server \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/rsyslog-logserv-server.sh \
@@ -111,8 +117,7 @@ gcloud compute instances create ldap \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/ldap.sh
- \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/ldap.sh \
 --private-network-ip=10.128.0.14
 	
 sleep 20s
@@ -135,6 +140,7 @@ gcloud compute instances create ubuntu-c-1 \
 --image-family ubuntu-1804-lts \
 --image-project ubuntu-os-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/ubuntu-c-1 \
@@ -146,6 +152,7 @@ gcloud compute instances create ubuntu-c-2 \
 --image-family ubuntu-1804-lts \
 --image-project ubuntu-os-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/ubuntu-c-2.sh\
@@ -158,6 +165,7 @@ gcloud compute instances create nfs-s \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nfs-server.sh\
@@ -168,6 +176,7 @@ gcloud compute instances create nfs-c \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nsf_client.sh \
@@ -178,6 +187,7 @@ gcloud compute instances create nagios \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-central1-a \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/nagios/nagios-install.sh \
@@ -185,4 +195,3 @@ gcloud compute instances create nagios \
 	
 sleep 20
 echo "Thank You Nicole :-)"
-
