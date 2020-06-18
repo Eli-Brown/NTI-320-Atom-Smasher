@@ -102,7 +102,7 @@ gcloud compute instances create nagios \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/nagios/nagios-install.sh \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nagios-install.sh \
 --private-network-ip=10.128.0.30
 	
 
