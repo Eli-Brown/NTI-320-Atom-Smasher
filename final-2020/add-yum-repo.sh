@@ -27,6 +27,7 @@ yum search hello-world
 
 ip="10.128.0.11"         #relaced IP                               # Please replace with your own IP
 
+
 echo "[nti-320]
 name=Extra Packages for Centos from NTI-320 7 - $basearch
 #baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch <- example epel repo
