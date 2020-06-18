@@ -2,8 +2,8 @@
 yum -y install python-pip python-devel gcc postgresql-server postgresql-devel postgresql-contrib
 postgresql-setup initdb
 systemctl start postgresql
-sed -i 's,host    all             all             127.0.0.1/32            ident,host    all             all             127.0.0.1/32            md5,g' /var/lib/pgsql/data/pg_hba.conf
-sed -i 's,host    all             all             ::1/128                 ident,host    all             all             ::1/128                 md5,g' /var/lib/pgsql/data/pg_hba.conf
+sed -i 's,host    all             all             127.0.0.1/32            ident,host    all             all             127.0.0.1/32            md5,g' /var/lib/pgsql/data/pg_hba.conf
+sed -i 's,host    all             all             ::1/128                 ident,host    all             all             ::1/128                 md5,g' /var/lib/pgsql/data/pg_hba.conf
 systemctl restart postgresql
 systemctl enable postgresql
 
@@ -30,13 +30,12 @@ CREATE DATABASE mypgdb OWNER pgdbuser;
 GRANT ALL PRIVILEGES ON DATABASE mypgdb TO pgdbuser;" > /tmp/phpmyadmin
 sudo -u postgres /bin/psql -f /tmp/phpmyadmin
 yum install -y phpPgAdmin
-
-sed -i 's/Require local/Require all granted/g' /etc/httpd/conf.d/phpPgAdmin.confsed -i 's/Deny from all/Allow from all/g' /etc/httpd/conf.d/phpPgAdmin.conf
+sed -i 's/Require local/Require all granted/g' /etc/httpd/conf.d/phpPgAdmin.conf
 sed -i 's/Deny from all/Allow from all/g' /etc/httpd/conf.d/phpPgAdmin.conf
+cp /etc/phpPgAdmin/config.inc.php-dist /etc/phpPgAdmin/config.inc.php
 sed -i "s/$conf\['servers'\]\[0\]\['host'\] = '';/$conf['servers'][0]['host'] = 'localhost';/g" /etc/phpPgAdmin/config.inc.php
 sed -i "s/$conf\['owned_only'\] = false;/$conf['owned_only'] = true;/g" /etc/phpPgAdmin/config.inc.php
 
 systemctl restart httpd
 systemctl restart postgresql
 #http://34.73.126.88/phpPgAdmin/
-
