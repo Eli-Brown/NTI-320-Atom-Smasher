@@ -138,5 +138,5 @@ gcloud compute instances create nagios \
 --metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/nagios/nagios-install.sh \
 --private-network-ip=10.128.0.30
 	
-	
+
 
