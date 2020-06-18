@@ -1,5 +1,28 @@
 #!/bin/bash
 # install snmp and tools
+
+# start by installing the repos for mariadb 10 (required by cacti)
+echo "[nti-310-epel]
+name=NTI310 EPEL
+baseurl=http://104.197.59.12/epel
+gpgcheck=0
+enabled=1" >> /etc/yum.repos.d/local-repo.repo
+echo "[nti-310-base]
+name=NTI310 BASE
+baseurl=http://104.197.59.12/base
+gpgcheck=0
+enabled=1" >> /etc/yum.repos.d/local-repo.repo
+echo "[nti-310-extras]
+name=NTI310 EXTRAS
+baseurl=http://104.197.59.12/extras/
+gpgcheck=0
+enabled=1" >> /etc/yum.repos.d/local-repo.repo
+echo "[nti-310-updates]
+name=NTI310 UPDATES
+baseurl=http://104.197.59.12/updates/
+gpgcheck=0
+enabled=1" >> /etc/yum.repos.d/local-repo.repo
+####
 yum -y install net-snmp net-snmp-utils httpd
 
 
