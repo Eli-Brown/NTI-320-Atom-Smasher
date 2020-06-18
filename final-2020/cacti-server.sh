@@ -1,5 +1,7 @@
 #!/bin/bash
 
+for file in $( ls /etc/yum.repos.d/ ); do mv /etc/yum.repos.d/$file /etc/yum.repos.d/$file.bak; done
+
 # start by installing the repos for mariadb 10 (required by cacti)
 echo "[nti-310-epel]
 name=NTI310 EPEL
