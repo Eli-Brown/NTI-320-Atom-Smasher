@@ -30,7 +30,7 @@ gcloud compute instances create example \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/example.sh \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/example.sh \
 --private-network-ip=10.128.0.3
 	
 sleep 20s
@@ -42,7 +42,7 @@ gcloud compute instances create repo \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/build/rpm-build/add-repo.sh \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/add-yum-repo.sh \
 --private-network-ip=10.128.0.11
 
 #nrpe
@@ -52,7 +52,7 @@ gcloud compute instances create nrpe \
 --zone us-central1-a \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/nagios/nrpe-install.sh \
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nrpe-install.sh\
 --private-network-ip=10.128.0.28
 
 
