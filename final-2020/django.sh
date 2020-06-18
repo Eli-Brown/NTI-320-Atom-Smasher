@@ -30,15 +30,15 @@ source nti310env/bin/activate
 pip install django psycopg2
 django-admin.py startproject nti310 .
 perl -i -0pe "BEGIN{undef $/;} s/        'ENGINE':.*db.sqlite3'\),/        'ENGINE': 'django.db.backends.postgresql_psycopg2',\n        'NAME': 'nti310',\n        'USER': 'nti310user',\n        'PASSWORD': 'password',\n        'HOST': 'postgres',\n        'PORT': '5432',/smg" /opt/nti310/nti310/settings.py
-python manage.py startapp Cars
+python manage.py startapp Trucks
 echo "class Specs(models.Model):
     name = models.CharField(max_length = 20)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    weight = models.PositiveIntegerField()" >> Cars/models.py
+    weight = models.PositiveIntegerField()" >> Trucks/models.py
     
-sed -i "40i \ \ \ \ 'Cars'," nti310/settings.py
-python manage.py makemigrations Cars
-python manage.py migrate Cars
+sed -i "40i \ \ \ \ 'Trucks'," nti310/settings.py
+python manage.py makemigrations Trucks
+python manage.py migrate Trucks
 echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@newproject.com','NTI300NTI300')" | python manage.py shell
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
@@ -49,7 +49,7 @@ wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com
 chmod +x /usr/lib64/nagios/plugins/check_mem.sh
 systemctl enable nrpe
 systemctl start nrpe
-sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.128.0.2/g' /etc/nagios/nrpe.cfg
+sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.128.0.28/g' /etc/nagios/nrpe.cfg
 echo "command[check_disk]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /dev/disk" >> /etc/nagios/nrpe.cfg
 echo "command[check_mem]=/usr/lib64/nagios/plugins/check_mem.sh -w 80 -c 90" >> /etc/nagios/nrpe.cfg
 systemctl restart nrpe
