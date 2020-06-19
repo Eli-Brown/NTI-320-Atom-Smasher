@@ -55,7 +55,7 @@ gcloud compute instances create django \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/django.sh\
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/django.sh \
 --private-network-ip=10.128.0.16
 
 gcloud compute instances create ubuntu-c-1 \
@@ -76,7 +76,7 @@ gcloud compute instances create ubuntu-c-2 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/ubuntu-c-1.sh\
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/ubuntu-c-1.sh \
 --private-network-ip=10.128.0.83
 
 #nfs server
@@ -87,7 +87,7 @@ gcloud compute instances create nfs-s \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nfs-server.sh\
+--metadata-from-file startup-script=/home/elibrown_scc/NTI-320-Atom-Smasher/final-2020/nfs-server.sh \
 --private-network-ip=10.128.0.18
 
 #nagios
