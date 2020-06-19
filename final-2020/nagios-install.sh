@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 for file in $( ls /etc/yum.repos.d/ ); do mv /etc/yum.repos.d/$file /etc/yum.repos.d/$file.bak; done
 echo "[nti-310-epel]
 name=NTI310 EPEL
@@ -60,6 +61,8 @@ cd /etc/nagios
 wget https://raw.githubusercontent.com/nic-instruction/hello-nti-320/master/generate_config.sh
 
 
+chmod 775 /etc/nagios/servers
+usermod -a -G root elibrown_scc
 
 # Now take a break, and spin up a machine called example-a with all the nrpe plugins installed and a propperly configured path
 # to nagios
