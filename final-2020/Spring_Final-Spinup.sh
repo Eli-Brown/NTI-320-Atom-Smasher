@@ -1,9 +1,5 @@
 #/bin/bash
 
-
-
-
-
 #cacti-server.sh
 gcloud compute instances create cacti-s \
 --image-family centos-7 \
